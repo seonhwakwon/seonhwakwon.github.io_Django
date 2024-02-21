@@ -1,0 +1,49 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static '/CSS/portfolio.css'%}">
+
+    <title>{% block title %}My portfolio{% endblock %}</title>
+
+</head>
+<body >
+    <div class ="backgorund">
+        <div class="Navbar">
+            <a class="active" href="{% url 'index'%}">Home</a>
+            <a href="{% url 'about' %}"> About</a>
+            <a href="{% url 'github' %}">GitHub</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+   <div id = "Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/sunna8012@gmail.com" method="POST" class="form-container"> <!-- Here we are using a free online service from https://formspree.io/ to send our contact form to an email address of our choosing - note: it will not run unless live on the internet, you have to push it to your online website first -->
+                <h1>Contact</h1>
+                    <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Type your name here" name="name" required>
+                    <label for="phone"><b>Phone</b></label>
+                        <input type="text" placeholder="Type your phone number here" name="phone">
+                    <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Type your email address here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                        <input type="text" placeholder="Type your message here" name="message">
+
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                </form>
+            </div>
+        </div>
+    <footer>
+        <p class="center">Seonhwa Kwon <a href="https://seonhwakwon.github.io/" target="_blank"> My Website </a></p>
+    </footer>
+    <script src="{% static '/JS/portfolio.js'%}"></script>
+</body>
+</html>
