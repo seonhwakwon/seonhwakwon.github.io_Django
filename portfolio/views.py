@@ -9,9 +9,9 @@ def home(request):
      if request.method == 'POST':
         if form.is_valid():
             form.save()
-    content = {'form': form}
+     content = {'form': form}
 
-    return render(request, 'portfolio/index.html', content)
+     return render(request, 'portfolio/index.html', content)
 
 def about(request):
     form = ContactForm(request.POST)
